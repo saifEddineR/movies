@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+// import Filter from './Component/Filter'
+import MovieList from './Component/MovieList'
+import NavBar from './Component/NavBar'
+
+const movies = [
+  {
+    id: 0,
+    movieName: 'John Wick 1',
+    movieImg: 'https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SX300.jpg',
+    movieRating: 5
+  }, {
+    id: 1,
+    movieName: 'Creed',
+    movieImg: 'https://upload.wikimedia.org/wikipedia/en/2/24/Creed_poster.jpg',
+    movieRating: 4
+  }
+]
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar></NavBar>
+      <MovieList movies={movies} ></MovieList>
     </div>
   );
 }
+
 
 export default App;
