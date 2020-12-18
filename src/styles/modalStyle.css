@@ -37,16 +37,15 @@
     justify-items: center;
 }
 #addBtn {
+    background-color: rgba(134, 134, 134, 0.3);
     justify-self: center;
     align-self: center;
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 20px;
-    width: 200px;
-    height: 300px;
-    border: none;
+    width: 250px;
+    height: 350px;
     opacity: .5;
+    border: none;
     cursor: pointer;
+    border-radius: 10px;
 }
 #addBtn img {
     border: none;

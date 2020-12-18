@@ -1,18 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import MovieCard from './MovieCard'
 import ModalInput from './ModalInput'
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, rating, searchInput }) => {
     const [newMovies, setNewMovies] = useState(movies);
+    const [filterList, setFilterList] = useState(newMovies);
 
     const getNewMovie = (data) => {
-        console.log('data received:', data);
         setNewMovies([...newMovies, data])
+        setFilterList([...newMovies, data])
     }
+    useEffect(() => {
+        let filteredMovies = newMovies.filter((movie) => {
+            let check = movie.movieName.toLowerCase().includes(searchInput)
+            if (movie.movieRating >= rating && check) {
+                return movie;
+            }
+        }
+        );
+        setFilterList(filteredMovies)
+    }, [searchInput, rating]);
 
     return (
         <div className='main'>
-            {newMovies.map((el, index) => {
+            {filterList.map((el, index) => {
                 return (
                     <MovieCard key={index} {...el} />
                 )

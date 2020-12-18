@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import { Button } from '@material-ui/core';
 
 
-function ModalInput({ getNewMovie, movies }) {
+function ModalInput({ getNewMovie }) {
     const btnImgUrl = 'https://static.thenounproject.com/png/953211-200.png'
 
     const [open, setOpen] = useState(false);
@@ -25,7 +25,16 @@ function ModalInput({ getNewMovie, movies }) {
         const value = e.target.value;
         setInputs({ ...inputs, [name]: value })
     }
-    const closeWithDelay = () => { setTimeout(() => { setOpen(false) }, 300) }
+    const closeWithDelay = () => {
+        setInputs({
+            movieName: '',
+            movieImg: '',
+            movieRating: ''
+        })
+        setTimeout(() => {
+            setOpen(false)
+        }, 300)
+    }
 
     return (
         <div id='addBtnContainer' >
