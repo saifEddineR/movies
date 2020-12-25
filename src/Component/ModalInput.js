@@ -1,7 +1,8 @@
-import '../styles/modalStyle.css'
+import '../styles/modalStyle.css';
 import React, { useState } from 'react';
 import Modal from '@material-ui/core/Modal';
 import { Button } from '@material-ui/core';
+import { uuid } from 'uuidv4';
 
 
 function ModalInput({ getNewMovie }) {
@@ -15,9 +16,11 @@ function ModalInput({ getNewMovie }) {
         setOpen(false);
     };
     const [inputs, setInputs] = useState({
+        id: uuid(),
         movieName: '',
         movieImg: '',
-        movieRating: ''
+        movieRating: '',
+        trailer: ''
     })
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -71,6 +74,14 @@ function ModalInput({ getNewMovie }) {
                             id='movieRating'
                             name='movieRating'
                             value={inputs.movieRating}
+                            onChange={handleSubmit}
+                        />
+                        <input
+                            type='text'
+                            placeholder='add movie trailer'
+                            id='trailer'
+                            name='trailer'
+                            value={inputs.trailer}
                             onChange={handleSubmit}
                         />
                         <span onClick={closeWithDelay} >

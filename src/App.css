@@ -127,3 +127,10 @@ body {
     margin-left: 20px;
   }
 }
+/* description */
+.description {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: darkblue;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import StarRatingComponent from 'react-star-rating-component';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const NavBar = ({ getData }) => {
     const [rating, setRating] = useState(0);

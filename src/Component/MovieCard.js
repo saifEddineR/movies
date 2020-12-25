@@ -1,26 +1,14 @@
 import React from 'react'
 import StarRatingComponent from 'react-star-rating-component';
+import { Link } from 'react-router-dom';
 
-const movieCard = ({ movieName, movieImg, movieRating }) => {
-    //     movieRating = parseInt(movieRating);
-    //     if (isNaN(movieRating) || movieRating <= 0) {
-    //         movieRating = 1
-    //         alert(`Rating input is not valid !
-    // default rating value is set 1`)
-    //     }
-    //     else if (movieRating > 5) {
-    //         movieRating = 5
-    //         alert(`Rating input is bigger than 5
-    // default rating value is set to 5!`)
-    //     }
-
-
-
+const movieCard = ({ movieName, movieImg, movieRating, id }) => {
     return (
         <article className='MovieCard'>
+            {/* <Link to={`/movies/${id}`}> */}
             <img
                 src={movieImg}
-                alt="you didn't implement a valid image link"
+                alt="you didn't implement a valid link"
                 width='250px'
             />
             <span>{movieName}</span>
@@ -32,6 +20,7 @@ const movieCard = ({ movieName, movieImg, movieRating }) => {
                     value={movieRating}
                 />
             </div>
+            {/* </Link> */}
         </article>
     )
 }
