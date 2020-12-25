@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Description = ({ filterList, match, history }) => {
-  const desc = filterList.filter((movie) => movie.id === parseInt(match.params.id))
+  const desc = filterList.filter((movie) => movie.id == match.params.id)
+  console.log(desc, match.params.id, filterList);
   let show;
   let trailer;
   if (desc.length > 0) {
@@ -14,7 +15,6 @@ const Description = ({ filterList, match, history }) => {
     <div className='description' >
       <p> {show} </p>
       {trailer}
-      <button onClick={() => history.goBack()} >click</button>
     </div>
   )
 }
