@@ -28,17 +28,17 @@ const MovieList = ({ movies, rating, searchInput }) => {
         <>
             <BrowserRouter>
                 <Route path='/movies/:id' render={(props) => <Description {...props} filterList={filterList} />} />
+                <div className='main'>
+                    {filterList.map((el, index) => {
+                        return (
+                            <>
+                                <MovieCard key={index} {...el} />
+                            </>
+                        )
+                    })}
+                    <ModalInput movies={movies} getNewMovie={getNewMovie} />
+                </div>
             </BrowserRouter>
-            <div className='main'>
-                {filterList.map((el, index) => {
-                    return (
-                        <>
-                            <MovieCard key={index} {...el} />
-                        </>
-                    )
-                })}
-                <ModalInput movies={movies} getNewMovie={getNewMovie} />
-            </div>
         </>
     )
 }
